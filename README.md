@@ -1,4 +1,4 @@
-# Cell Detection Project
+# ⭐ Cell Detection Project ⭐
 
 This project aims to detect and classify cells in images, utilizing state-of-the-art object detection techniques. The project is divided into various parts, each contributing to the overall goal of fast and accurate cell detection.
 
@@ -28,10 +28,10 @@ Scaling: Images are scaled by a factor of 0.75 to 0.95 to introduce variability 
 - **Simple CNN**: A basic convolutional neural network.
 - **Reasoning**: Although these models are viable, YOLOv5 provides the best balance of speed and accuracy for multiclass classification.
 
->Part 3: API Endpoint and Docker (Optional)
-FastAPI:
+_Part 3: Create API Endpoint and Docker (Optional)_  
+>FastAPI:
 - **API Endpoint**: If time permits, an API endpoint will be created using FastAPI to provide access to the model.
-Docker:
+>Docker:
 - **Containerization**: A Docker file may be created for easy deployment and scaling.
 ---
 ```diff
