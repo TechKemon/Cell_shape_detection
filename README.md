@@ -28,6 +28,8 @@ Scaling: Images are scaled by a factor of 0.75 to 0.95 to introduce variability 
 - **Simple CNN**: A basic convolutional neural network.
 - **Reasoning**: Although these models are viable, YOLOv5 provides the best balance of speed and accuracy for multiclass classification.
 
+![All 40 shapes detected with Bounding Boxes around them](YOLOv5 files/test.png)
+
 >Part 3: API Endpoint and Docker (Optional)
 FastAPI:
 - **API Endpoint**: If time permits, an API endpoint will be created using FastAPI to provide access to the model.
@@ -36,7 +38,7 @@ Docker:
 ---
 ## Sample run on Test Image
 
-![Alt](path to img)
+
 
 ---
 ## Conclusion
