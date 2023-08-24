@@ -7,13 +7,12 @@ import os
 import random
 
 def generate_images(input_path, M = 1024, M1 = 1024, num = 1000):
-  # N is no of shapes we need to identify (here 4)
+  # N is no of shapes we need to identify
   # M x M1 is dimensions of output image (default 1024x1024), 
-  # num is total number of images to be genrated (default 100, can take 1000 too)
+  # num is total number of images to be generated (default 100, can take 1000 too)
   # given output image will contain k images of each type
-  N,k = 4,10 
-  print(N) # debugging check
-  
+  N,k = 4,10 # reasonable assumptions
+
   # Define class labels
   class_labels = [0,1,2,3] # EACH FOR ['disc', 'gear', 'hexagon', 'square']
   # or we can use dictionary based approach too class_labels = {'disc':0, 'gear':1, 'hexagon':2, 'square':3}
@@ -21,9 +20,6 @@ def generate_images(input_path, M = 1024, M1 = 1024, num = 1000):
   # to store data for each image
   samples = []
   labels = []
-
-  # Create a list to store the images, positions, and ground truth labels
-  image_data = [] 
 
   for j in range(1, N + 1): # For N shapes
       image_path = f'{input_path}/{j}.jpg' # Reading N images from the input folder assuming images are named as per their type ie disc is named 1.jpg and so on. If not , need to do that before processing here
@@ -52,6 +48,8 @@ def generate_images(input_path, M = 1024, M1 = 1024, num = 1000):
       bg_image = np.zeros((dim, dim,3), np.uint8)
       # Alternative method => bg_image = Image.new('RGB', out_dims, (5, 5, 5)) or Image.new("RGB", out_dims, "black")
 
+      # Create a list to store the images, positions, and ground truth labels
+      image_data = []
       dims = []
       # finding non-overlapping positions
       dims = random.sample(all_dims,num_images)
@@ -79,8 +77,8 @@ def generate_images(input_path, M = 1024, M1 = 1024, num = 1000):
 
               # Getting centroid and width & hieght of image
 
-              x1 = (y+(img.shape[1]//2))/1024 # normalised x coordinate of centroid
-              y1 = (x+(img.shape[0]//2))/1024 # normalised y coordinate of centroid
+              x1 = (x+(img.shape[1]//2))/1024 # normalised x coordinate of centroid
+              y1 = (y+(img.shape[0]//2))/1024 # normalised y coordinate of centroid
 
               h = img.shape[0]/1024  # Normalized dimensions Hieght and Width 
               w = img.shape[1]/1024  
@@ -89,19 +87,19 @@ def generate_images(input_path, M = 1024, M1 = 1024, num = 1000):
               image_data.append((label,x1,y1,w,h))
 
       # Saving the file in output directory 
-      output_filename = f'/Users/leader/Downloads/NLP/Computer_Vision/Achira/output_images/new/gen_image_{nout}.png'
+      output_filename = f'generated_images/gen_image_{nout}.png'
       cv2.imwrite(output_filename, bg_image)
 
       # Save the corresponding annotation file
-      with open(f'/Users/leader/Downloads/NLP/Computer_Vision/Achira/output_images/new/gen_annotations_{nout}.txt', 'w') as file:
+      with open(f'generated_annotations/gen_annotations_{nout}.txt', 'w') as file:
         for obj in image_data: # reading the annotated data stored as tuples 
           label,x1,y1,w,h = obj # getting (label,centroid x, centroid y,width,height) as tuple
           file.write(f"{label} {x1} {y1} {w} {h}\n")
 
-  #images.append(image_data)
   print("success")
+  return None
 
-  if __name__ == "__main__":
+if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description='Generate k images of N type')
