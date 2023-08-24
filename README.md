@@ -37,7 +37,12 @@ Docker:
 ```diff
 + ➡️ Sample run on Test Image
 ```
-![All 40 shapes detected with Bounding Boxes around them](YOLOv5 files/test.png)
+
+![Before Inference](https://github.com/TKtheFirstone/Cell_shape_detection/assets/49061459/1709b17c-89b1-4862-95ba-e9e53cb465c1)  
+  
+➡️ ***After Inference,All 40 shapes detected with Bounding Boxes around them with mAP-50 of over 98%***  
+
+![After Inference,All 40 shapes detected with Bounding Boxes around them](https://github.com/TKtheFirstone/Cell_shape_detection/assets/49061459/f122c44b-f391-4e1a-a4e0-bdb401abc854)
 
 ---
 ## ➡️ Conclusion
