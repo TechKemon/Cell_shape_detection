@@ -1,0 +1,10 @@
+cv2
+gdown
+matplotlib
+numpy
+pandas
+comet
+yolov5
+torch
+tensorflow
+
